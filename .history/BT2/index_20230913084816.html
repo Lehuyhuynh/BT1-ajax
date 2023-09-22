@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BT2</title>
+</head>
+<body>
+  <h2>Xây dựng trang danh sách món ăn với MealDB API</h2>
+
+  <h3>Menu</h3>
+
+  <div class="menu">
+
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+
+  const list = [];
+  function fetchData() {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/todos`)
+        .then(function (response) {
+          todos = response.data;
+          console.log(2, todos);
+          render();
+        });
+
+
+        console.log( axios
+        .get(`https://jsonplaceholder.typicode.com/todos`));
+
+        
+    }
+
+    function render() {
+      const container = document.querySelector(".menu");
+      const todoElement = todos.map((item) => `<li>${item.title}</li>`);
+
+      container.innerHTML = todoElement.join("");
+    }
+
+    fetchData();
+   
+  </script>
+</body>
+</html>

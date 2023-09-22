@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Xây dựng trang danh sách Pokemon với Pokemon API</h3>
+  <ol id="container">
+    
+  </ol>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    let list = [];
+
+    function fetchData() {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/todos`, {
+         
+        })
+        .then(function (response) {
+          list = response.data;
+          console.log(2, todos);
+          render();
+        });
+    }
+
+    function render() {
+      const container = document.querySelector("#container");
+      const todoElement = todos.map((item) => `<li>${item.title}</li>`);
+
+      container.innerHTML = todoElement.join("");
+    }
+
+    fetchData();
+
+  
+</body>
+</html>

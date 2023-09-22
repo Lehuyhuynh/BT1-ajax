@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BT1</title>
+</head>
+<body>
+  <h3>Xây dựng trang danh sách Pokemon với Pokemon API</h3>
+  <ol id="container">
+    
+  </ol>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    let list = [];
+
+    function fetchData() {
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon/`)
+        .then(function (response) {
+          list = response.data;
+          
+          console.log(2, list);
+          const lists = list.results
+          console.log(3, lists);
+          render();
+        });
+    }
+    // function render() {
+    //   const container = document.querySelector("#container");
+    //   const todoElement = list.map((item) => `<li>${item.results}</li>`);
+
+    //   container.innerHTML = todoElement.join("");
+    // }
+
+    fetchData();
+</script>
+  
+</body>
+</html>
